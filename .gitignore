@@ -1,2 +1,9 @@
+# Dependencies
 node_modules
-.env
+
+# Environment variables
+env/*
+!env/.env.example
+
+# Distribution files
+dist

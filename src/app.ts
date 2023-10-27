@@ -1,8 +1,9 @@
-import dotenv from "dotenv";
+import "./config";
+
 import express from "express";
 import morgan from "morgan";
 
-dotenv.config();
+import router from "./routes";
 
 const PORT = process.env.PORT || 3000;
 
@@ -12,6 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 
+app.use("/api", router)
 app.get("/", (req, res) => res.send("Hello, World!"));
 
 app.listen(PORT, () => console.log(
