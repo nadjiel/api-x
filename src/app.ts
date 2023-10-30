@@ -4,7 +4,7 @@ import express from "express";
 import morgan from "morgan";
 import httpStatus from "http-status-codes";
 
-import router from "./routes";
+import { userRouter } from "./routes";
 import Exception from "./error/Exception";
 import { errorHandler } from "./middleware";
 
@@ -16,11 +16,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.use("/api", router)
+app.use("/api/user", userRouter)
 
 app.all("*", (req, res, next) => {
   const error = new Exception(
-    "Route not found",
+    "Not found",
     `Can't find '${req.originalUrl}' route`,
     httpStatus.NOT_FOUND
   );
