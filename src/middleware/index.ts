@@ -1,3 +1,4 @@
+import defaultRouter from "./defaultRouter";
 import errorHandler from "./errorHandler";
 
-export { errorHandler };
+export { defaultRouter, errorHandler };
