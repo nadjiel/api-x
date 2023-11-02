@@ -1,5 +1,5 @@
 import "./config";
-import { testDBConnection } from "./db";
+import sequelize, { testDBConnection } from "./db";
 
 import express from "express";
 import morgan from "morgan";
@@ -24,6 +24,7 @@ app.use(errorHandler);
 async function start() {
   try {
     await testDBConnection();
+    await sequelize.sync();
 
     app.listen(PORT, () => console.log(
       `Listening on port ${ PORT }`
