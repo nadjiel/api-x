@@ -6,7 +6,7 @@ class Exception extends Error {
 
   constructor(
     name = "Internal server error",
-    message = "Something went wrong!",
+    message = "Something went wrong",
     status = httpStatus.INTERNAL_SERVER_ERROR
   ) {
     super(message);
